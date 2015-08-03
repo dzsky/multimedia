@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+	
+
+<struts>
+	<constant name="struts.enable.DynamicMethodInvocation" value="true"></constant>
+	<constant name="struts.il8n.encoding" value="GBK"></constant>
+	<constant name="struts.action.extension" value="action" /> 
+	<constant name="struts.multipart.maxSize" value="10000000000"/>
+	
+
+
+    <!-- Add packages here -->
+	<package name="reg" extends="struts-default">
+		<action name="registerAction" class="org.multimedia.action.RegisterAction">
+			<result name="success">/content/registerSucc.jsp</result>
+			<result name="fail">/content/registerFail.jsp</result>
+		</action>
+	</package>
+	
+	<package name="log" extends="struts-default">
+		<action name="loginAction" class="org.multimedia.action.LoginAction">
+			<result name="success">/content/index.jsp</result>
+			<result name="fail">/content/loginFail.jsp</result>
+		</action>
+	</package>
+	
+	<package name="homepage" extends="struts-default">
+		<action name="toHomePageAction" class="org.multimedia.action.ToHomePageAction">
+			<result name="success">/content/homePage.jsp</result>
+			<result name="fail">/content/login.jsp</result>
+		</action>
+	</package>
+
+	<package name="up" extends="struts-default">
+		<action name="uploadAction" class="org.multimedia.action.UploadAction">
+			<param name="savePath">s:/</param>
+			<result>/content/homePage.jsp</result>
+		</action>
+	</package>
+	
+	<package name="upface" extends="struts-default">
+		<action name="uploadFaceAction" class="org.multimedia.action.UploadFaceAction">
+			<param name="savePath">s:/</param>
+			<result></result>
+		</action>
+	</package>
+	
+	<package name="canulp" extends="json-default">
+		<action name="canUploadAction" class="org.multimedia.action.CanUploadAction">
+			<result type="json">
+				<param name="includeProperties">isSuccess</param>
+			</result>
+		</action>
+	</package>
+	
+	<package name="getface" extends="json-default">
+		<action name="getFaceAction" class="org.multimedia.action.GetFaceAction">
+			<result type="json">
+				<param name="includeProperties">path</param>
+			</result>
+		</action>
+	</package>
+	
+	<package name="uprecord" extends="json-default">
+		<action name="uploadRecordAction" class="org.multimedia.action.UploadRecordAction">
+			<result type="json">
+				<param name="includeProperties">list.*, pageTotal</param>
+			</result>
+		</action>
+	</package>
+	
+	<package name="delete" extends="json-default">
+		<action name="deleteResourceAction" class="org.multimedia.action.DeleteResourceAction">
+			<result type="json">
+				<param name="includeProperties">isSuccess</param>
+			</result>
+		</action>
+	</package>
+	
+	<package name="download" extends="struts-default">
+		<action name="downloadAction" class="org.multimedia.action.DownloadAction"> 
+  		 <!--<param name="fileName">Struts中文附件.txt</param>  
+  		<param name="inputPath">c:/uploadFile/系统说明.doc</param> -->
+  		<!-- 初始化文件名
+  		<param name="fileName">系统说明.doc</param> -->
+  			<result name="success" type="stream"> 
+  			<!-- 内容类型  
+        	<param name="contentType">text/plain</param>-->
+        		<param name="contentType">application/octet-stream;charset=ISO8859-1</param>
+        	<!-- 下载文件的来源流 -->
+        		<param name="inputName">inputStream</param>
+        	<!-- 文件下载的处理方式:attachment;filename="struts2.txt" ，表示文件下载的时候保存的名字应为struts2.txt  -->
+         	    <param name="contentDisposition">attachment;filename="${downloadFileName}"</param>
+            <!-- 下载缓冲区的大小  --> 
+        		<param name="bufferSize">4096</param> 
+   			</result>    
+		</action>  
+	</package>
+	
+	<package name="view" extends="struts-default">
+		<action name="resourceViewAction" class="org.multimedia.action.ResourceViewAction">
+			<result name="success">/content/videoPlay.jsp</result>
+		</action>
+	</package>
+	<package name="view2" extends="json-default">
+		<action name="resourceViewAction2" class="org.multimedia.action.ResourceViewAction2">
+			<result type="json">
+				<param name="includeProperties">list2.*, resourceDomain</param>
+			</result>
+		</action>
+	</package>
+	
+	<package name="collect" extends="json-default">
+		<action name="collectAction" class="org.multimedia.action.CollectAction">
+			<result type="json">
+				<param name="includeProperties">isSuccess</param>
+			</result>
+		</action>
+	</package>
+	
+	<package name="collectRecord" extends="json-default">
+		<action name="collectRecordAction" class="org.multimedia.action.CollectRecordAction">
+			<result type="json">
+				<param name="includeProperties">list.*,pageTotal</param>
+			</result>
+		</action>
+	</package>
+	
+	<package name="webhome" extends="struts-default">
+		<action name="webHomeAction" class="org.multimedia.action.WebHomeAction">
+			<result name="success">/content/webHome.jsp</result>
+		</action>
+	</package>
+	
+	<package name="comment" extends="json-default">
+		<action name="commentAction" class="org.multimedia.action.CommentAction">
+			<result type="json">
+				<param name="includeProperties">isSuccess</param>
+			</result>
+		</action>
+	</package>
+	
+	<package name="commentRecord" extends="json-default">
+		<action name="personalCommentAction" class="org.multimedia.action.PersonalCommentAction">
+			<result type="json">
+				<param name="includeProperties">listStr.*,pageTotal</param>
+			</result>
+		</action>
+	</package>
+	
+	<package name="personalInformation" extends="struts-default">
+		<action name="personalInforAction" class="org.multimedia.action.PersonalInforAction">
+			<result name="success">/content/personalInfor.jsp</result>
+		</action>
+	</package>
+	
+	<package name="changePwd" extends="json-default">
+		<action name="changeInforAction" class="org.multimedia.action.ChangeInforAction">
+			<result type="json">
+				<param name="includeProperties">isSuccess</param>
+			</result>
+		</action>
+	</package>
+	
+	<package name="changeName" extends="json-default">
+		<action name="changeUsernameAction" class="org.multimedia.action.ChangeUsernameAction">
+			<result type="json">
+				<param name="includeProperties">isSuccess</param>
+			</result>
+		</action>
+	</package>
+	
+	<package name="deletecomment" extends="json-default">
+		<action name="deleteCommentAction" class="org.multimedia.action.DeleteCommentAction">
+			<result type="json">
+				<param name="includeProperties">isSuccess</param>
+			</result>
+		</action>
+	</package>
+	
+	<package name="deletecollect" extends="json-default">
+		<action name="deleteCollectAction" class="org.multimedia.action.DeleteCollectAction">
+			<result type="json">
+				<param name="includeProperties">isSuccess</param>
+			</result>
+		</action>
+	</package>
+	
+	<package name="search" extends="json-default">
+		<action name="retrievalAction" class="org.multimedia.action.RetrievalAction">
+			<result type="json">
+				<param name="includeProperties">list</param>
+			</result>
+		</action>
+	</package>
+	
+	<package name="emailIs" extends="struts-default">
+		<action name="emailIsExistAction" class="org.multimedia.action.EmailIsExistAction">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">result</param>
+			</result>
+		</action>
+	</package>
+	
+	<package name="index" extends="json-default">
+		<action name="indexGetVideoAction" class="org.multimedia.action.IndexGetVideoAction">
+			<result type="json">
+				<param name="includeProperties">*.list</param>
+			</result>
+		</action>
+		<action name="indexGetVoiceAction" class="org.multimedia.action.IndexGetVoiceAction">
+			<result type="json">
+				<param name="includeProperties">*.list</param>
+			</result>
+		</action>
+		<action name="indexGetPictureAction" class="org.multimedia.action.IndexGetPictureAction">
+			<result type="json">
+				<param name="includeProperties">*.list</param>
+			</result>
+		</action>
+		<action name="indexGetDocumentAction" class="org.multimedia.action.IndexGetDocumentAction">
+			<result type="json">
+				<param name="includeProperties">*.list</param>
+			</result>
+		</action>
+	</package>
+	
+	<package name="get" extends="json-default">
+		<action name="getVideoAction" class="org.multimedia.action.GetVideoAction">
+			<result type="json">
+				<param name="includeProperties">list.*,pageTotal</param>
+			</result>
+		</action>
+		<action name="getVoiceAction" class="org.multimedia.action.GetVoiceAction">
+			<result type="json">
+				<param name="includeProperties">list.*,pageTotal</param>
+			</result>
+		</action>
+		<action name="getPictureAction" class="org.multimedia.action.GetPictureAction">
+			<result type="json">
+				<param name="includeProperties">list.*,pageTotal</param>
+			</result>
+		</action>
+		<action name="getDocumentAction" class="org.multimedia.action.GetDocumentAction">
+			<result type="json">
+				<param name="includeProperties">list.*,pageTotal</param>
+			</result>
+		</action>
+	</package>
+</struts>

@@ -1,0 +1,166 @@
+﻿body, p, ul, li {
+	margin: 0;
+	padding: 0;
+}
+body {padding-top: 50px;}
+span {margin-left: 0;}
+
+.navbar{
+	background-color: #555;
+
+}
+.header-nav li{
+	font-family: "Microsoft Yahei";
+	font-size: 16px;
+}
+.header-nav li:hover {background-color: #333333;}
+
+.header {
+	width: 100%;
+}
+
+
+
+.navbar-brand {
+	font-family: "Microsoft Yahei";
+}
+
+.header-logo {width: 20%;}
+
+.header-nav {margin-left: 10%;}
+
+.header-nav li {margin-left: 0%;}
+.header-search {
+	float: left;
+	margin-left: 5%;
+	margin-top: 0.2%;
+	padding: 0.5%;
+	}
+
+
+
+
+.header-search input, .header-search select, .header-search option {
+	background-color: #EAEAEA;
+	font-family: "Microsoft Yahei";
+}
+
+
+
+.header-zone-login{
+	float: right; margin-top:0.6%;}
+
+.wrap, .carousel, .content {width: 100%; }
+.wrap-movie {
+	top:0px;
+	margin-top:0px;
+	}
+
+
+.index-backcolor, .audio-backcolor{
+	background-color: #F5F5F5;
+}
+.audio-backcolor{ width:1250px;}
+
+.content-movie, .content-audio{
+	margin-top: 20px;
+}
+
+.movie-info, .audio-info{
+	float: left;
+	margin: 1% 1.5%;
+}
+
+.audio-info{
+	margin:2% 2%;
+	margin-right: 3%;
+}
+
+.movie-info-name, .audio-info-name{
+	float: left;
+}
+
+.movie-info-view, .audio-info-view{
+	float: right;
+}
+
+.modal-content{
+	background-color: #EAEAEA;
+}
+
+/*@media screen and(max-width: 960px) {
+	.content-movie {
+		background-color: red;
+	}
+}*/
+
+.wrap-zone{
+	background-color: #EAEAEA;
+}
+.zone-user-info{
+	width: 100%;
+	
+	padding: 15px;
+	background: url(../img/background-2.jpg) repeat;
+}
+
+.addHeadPic{
+	display : block;
+}
+
+
+.headPic{
+	text-align: center;
+}
+
+
+.zone-content{
+	width: 100%;
+	margin-top: 30px;
+}
+
+.wrap-videoPlay{
+	width: 100%;
+	padding-top: 20px;
+/*	padding-bottom: 50px;*/
+	background-color: #EAEAEA;
+}
+
+.video-operate{
+	width: 100%;
+	margin-top: 30px;
+}
+
+.display {
+	display: block;
+}
+
+.none {
+	display: none;
+}
+
+.zone-update-margin {
+	margin-top: 10px;
+}
+
+.waterfall {
+	width: 80%;
+
+}
+
+.wrap-picture {
+	margin-top: 10px;
+	margin-left: 7.5%;
+}
+
+	
+
+.picture {
+	width: 250px;
+	height: 250px;
+	float: left;
+}
+
+.comment-back-color{
+	background-color: #EAEAEA;
+}
